@@ -4,6 +4,8 @@
 - o czym będę mówił
 ...
 
+1a. Plan wypowiedzi
+
 2. Dlaczego groovy?
 - 150 różnych języków na JVM
 ...

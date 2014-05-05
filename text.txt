@@ -1,0 +1,6 @@
+Dlaczego Groovy?
+Każdy kod napisany w Javie możemy uruchomić jako Groovy - możemy zacząć pisać kod Grooviego, a jeżeli utkniemy, bezproblemowo możemy przełączyć się na Javę, a potem ewentualnie zrefaktorować ten kod.
+Programując w Groovym możemy oczekiwać tego czego oczekujemy w Javie - klasy w Groovym rozszerzają ten samą klasę java.lang.Object co klasy w Javie. Zatem klasy w groovym są klasami w Javie.
+Groovy jest językiem dynamicznym, typowanym opcjonalnie. Dodawanie metod do istniejących klas jest dziecinnie proste i może być osiągnięte w zaledwie paru liniach kodu, bez wtrącania się w kod źródłowy klasy. (pokażę potem)
+JDK jest dostępne w Groovym, co więcej, Groovy rozszerza JDK o metody i wsparcie domknięć poprzez Groovy JDK (GDK).
+W skrócie: Groovy rozszerza Javę, którą znamy.
