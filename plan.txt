@@ -29,15 +29,12 @@
 - duck typing (def)
 - named arguments
 - operators (spread operator, elvis operator, Equals, safe navigation operator...)
-- closures (vs lambda expressions and java 8 comparison here)
-- collections (and java 8 comparison here)
+- closures
+- collections
 - dynamic methods (some ways mentioned)
-- dynamic during compilation
 -*(working with xml)
 -*(dsl)
 
 === ZAKOŃCZENIE ===
-- frameworki, które korzystają z groovy'ego
-- podsumowanie
 - bibliografia
 - dziękuję za uwagę

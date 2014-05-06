@@ -6,3 +6,8 @@
 .reveal h6 {
 	font-family: serif !important;
 }
+
+section blockquote {
+    font-size: 32px;
+    font-style: italic;
+}

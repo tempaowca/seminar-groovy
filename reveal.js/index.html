@@ -81,7 +81,7 @@
                     </section>
                     <section>
                         <blockquote>
-                            <span style="font-size: 32px;font-style: italic;">"I can honestly say if someone had shown me the Programming in Scala book by by Martin Odersky, Lex Spoon & Bill Venners back in 2003 I'd probably have never created Groovy."</span>
+                            "I can honestly say if someone had shown me the Programming in Scala book by by Martin Odersky, Lex Spoon & Bill Venners back in 2003 I'd probably have never created Groovy."
                         </blockquote>
                         <p style="text-align: right;">~James Strachan</p>
                     </section>
@@ -121,9 +121,32 @@
                     <h2>Średniki</h2>
                     <p>Średniki w Groovym są opcjonalne, nadal trzeba ich używać kiedy chcemy zawrzeć więcej niż jedno wyrażenie w linii.</p>
                 </section>
-                <section data-background="#007777">
-                    <h2>Nawiasy</h2>
-                    <p>Nawiasy otaczające argumenty przy wywoływaniu metod są opcjonalne. Wyjątkiem jest sytuacja kiedy metoda nie przyjmuje argumentów.</p>
+                <section>
+                    <section data-background="#007777">
+                        <h2>Nawiasy</h2>
+                        <p>Nawiasy otaczające argumenty przy wywoływaniu metod są opcjonalne. Wyjątkiem jest sytuacja kiedy metoda nie przyjmuje argumentów.</p>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>Nawiasy c.d.</h2>
+                        <p>fałszywy getter</p>
+                        <div>
+                            <pre><code>
+class Pie {
+    getCook() { /* pracowite przygotowanie ciasta tutaj */ }
+}
+
+pie.cook
+                            </code></pre>
+                        </div>
+                        <p>method pointer</p>
+                        <div>
+                            <pre><code>
+def pie = new Pie()
+def cook = pie.&deliver()
+cook
+                            </code></pre>
+                        </div>
+                    </section>
                 </section>
                 <section data-background="#007777">
                     <h2>return</h2>
@@ -174,7 +197,7 @@ String getFullName(){
                         </div>
                     </section>
                     <section>
-                        <h2>Pętle c.d</h2>
+                        <h2>Pętle c.d.</h2>
                         <p>upto</p>
                         <div>
                             <pre><code>0.upto(3) { print ​"​$it​ "​}</code></pre>
@@ -189,8 +212,101 @@ String getFullName(){
                         </div>
                     </section>
                 </section>
+                <section>
+                    <section data-background="#007777">
+                        <h2>duck typing</h2>
+                        <blockquote>
+                            "if it walks like a duck and quacks like a duck, it must be a duck."
+                        </blockquote>
+                        <p>Java</p>
+                        <div>
+                            <pre><code>Pie pie = new Pie()</code></pre>
+                        </div>
+                        <p>Groovy</p>
+                        <div>
+                            <pre><code>
+def pie = new Pie()
+pie = new Pizza()
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>duck typing c.d.</h2>
+                        <p>Java</p>
+                        <div>
+                            <pre><code>
+public​ ​void​ hear(Singer singer) {
+    ​//...​
+    singer.sing();
+    ​//...​
+}
+                            </code></pre>
+                        </div>
+                        <p>Groovy</p>
+                        <div>
+                            <pre><code>
+​def​ hear(singer) {
+    ​//...​
+    singer.sing();
+    ​//...​
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>@TypeChecked</h2>
+                        ​<div>
+                            <pre><code>
+​def​ shout(​String​ str) {
+    println ​"Printing in uppercase"​
+    println str.toUpperCase()
+    println ​"Printing again in uppercase"​
+    println str.toUppercase()
+}
+​try​ {
+    shout(​'hello'​)
+} ​catch​(ex) {
+    println ​"Failed..."​
+}
+                            </code></pre>
+                        </div>
+                        ​<div>
+                        <p>Wyjście:</p>
+                            <pre><code>
+Printing in uppercase
+HELLO
+Printing again in uppercase
+Failed...
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>@CompileStatic</h2>
+                        ​<div>
+                            <pre><code>
+int fibonacciDynamic(int i) {
+    i < 2 ? 1 : fibonacciDynamic(i - 2) + fibonacciDynamic(i - 1)
+}
+
+@CompileStatic
+int fibonacciStatic(int i) {
+    i < 2 ? 1 : fibonacciStatic(i - 2) + fibonacciStatic(i - 1)
+}
+                            </code></pre>
+                    </div>
+                    <div class="fragment">
+                        <p>Groovy: 1290</p>
+                        <p>Groovy @CompileStatic: 426</p>
+                        <p>Java: 426</p>
+                    </div>
+                    </section>
+                </section>
                 <section data-background="#007777">
-                    <h2>duck typing</h2>
+                    <h2>Wyjątki</h2>
+                    <br />
+                    <br />
+                    <p>Java: checked i unchecked</p>
+                    <p>Groovy: unchecked</p>
                 </section>
                 <section data-background="#007777">
                     <h2>GroovyBeans</h2>
@@ -198,8 +314,23 @@ String getFullName(){
                 <section data-background="#007777">
                     <h2>Nazwane argumenty</h2>
                 </section>
-                <section data-background="#007777">
-                    <h2>Operatory</h2>
+                <section>
+                    <section data-background="#007777">
+                        <h2>Operatory</h2>
+                        <h3>Przeciążanie</h3>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>Operatory c.d.</h2>
+                        <h3>Elvis</h3>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>Operatory c.d.</h2>
+                        <h3>spread operator</h3>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>Operatory c.d.</h2>
+                        <h3>safe navigation operator</h3>
+                    </section>
                 </section>
                 <section data-background="#007777">
                     <h2>Domknięcia</h2>
