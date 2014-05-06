@@ -1,6 +1,25 @@
+Czym jest Groovy?
+Obiektowy język programowania działający na maszynie wirtualnej Javy.
+Dynamiczny język z właściwościami podobnymi do właściwości języków takich jak Python, Smalltalk czy Ruby.
+Kompilowany do bytecodu Javy, rozszerza Javę i jej biblioteki.
+
+Język dynamiczny
+Języki dynamiczne rozszerzają program w czasie jego działania: mogą zmieniać typy, zachowania oraz struktury obiektów.
+Możemy nawet wykonać instrukcje które tworzone są w locie podczas działania programu. Robią to co języki statyczne robią podczas kompilacji.
+Języki dynamiczne istnieją już od lat, ale ostatnimi laty stały się bardziej modne. Dlaczego? Lepszy sprzęt, większa produktywność.
+
+Historia
+Prace nad groovym rozpoczął James Strachan w 2003 roku.
+W latach 2004-2006 pojawiały się pomniejsze wersje, jednak po tym jak rozpoczął się proces standaryzacji - w styczniu 2007 roku pojawiła się wersja 1.0.
+Ojciec języka nie doczekał się tego (odszedł z projektu mniej więcej rok wcześniej). Co ciekawe napisał w 2009 roku na blogu
+'I can honestly say if someone had shown me the Programming in Scala book by by Martin Odersky, Lex Spoon & Bill Venners back in 2003 I'd probably have never created Groovy.'
+Wersja 2.0 2012.
+
 Dlaczego Groovy?
 Każdy kod napisany w Javie możemy uruchomić jako Groovy - możemy zacząć pisać kod Grooviego, a jeżeli utkniemy, bezproblemowo możemy przełączyć się na Javę, a potem ewentualnie zrefaktorować ten kod.
 Programując w Groovym możemy oczekiwać tego czego oczekujemy w Javie - klasy w Groovym rozszerzają ten samą klasę java.lang.Object co klasy w Javie. Zatem klasy w groovym są klasami w Javie.
 Groovy jest językiem dynamicznym, typowanym opcjonalnie. Dodawanie metod do istniejących klas jest dziecinnie proste i może być osiągnięte w zaledwie paru liniach kodu, bez wtrącania się w kod źródłowy klasy. (pokażę potem)
 JDK jest dostępne w Groovym, co więcej, Groovy rozszerza JDK o metody i wsparcie domknięć poprzez Groovy JDK (GDK).
 W skrócie: Groovy rozszerza Javę, którą znamy.
+
+
