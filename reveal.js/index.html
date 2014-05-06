@@ -97,19 +97,103 @@
                 </section>
 
                 <section data-background="#007777">
-                    <h2>Auto import</h2>
+                    <section>
+                        <h2>Auto import</h2>
+                        <ul>
+                            <li>java.lang</li>
+                            <li>java.util</li>
+                            <li>java.io</li>
+                            <li>java.net</li>
+                            <li>java.math.BigDecimal</li>
+                            <li>java.math.BigInteger</li>
+                            <li>groovy.lang</li>
+                            <li>groovy.util</li>
+                        </ul>
+                    </section>
+                    <!--<section>-->
+                        <!--<p>Java</p>-->
+                        <!--<div>-->
+                            <!--<pre><code> String displayName = user.getName() ? user.getName() : "Anonymous"</code></pre>-->
+                        <!--</div>-->
+                    <!--</section>-->
                 </section>
                 <section data-background="#007777">
                     <h2>Średniki</h2>
+                    <p>Średniki w Groovym są opcjonalne, nadal trzeba ich używać kiedy chcemy zawrzeć więcej niż jedno wyrażenie w linii.</p>
+                </section>
+                <section data-background="#007777">
+                    <h2>Nawiasy</h2>
+                    <p>Nawiasy otaczające argumenty przy wywoływaniu metod są opcjonalne. Wyjątkiem jest sytuacja kiedy metoda nie przyjmuje argumentów.</p>
+                </section>
+                <section data-background="#007777">
+                    <h2>return</h2>
+                    <p>Ostatnia linia metody jest domyślnie zwracana z metody.</p>
+                    <p>Java</p>
+                    <div>
+                        <pre><code>
+String getFullName(){
+    return "Wspaniała prezentacja.";
+}
+                        </code></pre>
+                    </div>
+                    <p>Groovy</p>
+                    <div>
+                        <pre><code>
+String getFullName(){
+    "Wspaniała prezentacja."
+}
+                        </code></pre>
+                    </div>
                 </section>
                 <section data-background="#007777">
                     <h2>println</h2>
+                    <p>println zostało dodane do java.lang.Object</p>
+                    <p>Java</p>
+                    <div>
+                        <pre><code>System.out.println("Wspaniała prezentacja.");</code></pre>
+                    </div>
+                    <p>Groovy</p>
+                    <div>
+                        <pre><code>println "Wspaniała prezentacja."</code></pre>
+                    </div>
                 </section>
                 <section data-background="#007777">
-                    <h2>Pętle</h2>
+                    <section>
+                        <h2>Pętle</h2>
+                        <p>Java</p>
+                        <div>
+                            <pre><code>
+​for​(​int​ i = 0; i < 4; i++) {
+​   System​.out.print(​i + " "​)​;
+}
+                            </code></pre>
+                        </div>
+                        <p>Groovy</p>
+                        <div>
+                            <pre><code>​for​(i ​in​ 0..3) { print i + ' ' }</code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>Pętle c.d</h2>
+                        <p>upto</p>
+                        <div>
+                            <pre><code>0.upto(3) { print ​"​$it​ "​}</code></pre>
+                        </div>
+                        <p>times</p>
+                        <div>
+                            <pre><code>4.times { print ​"​$it​ "​}</code></pre>
+                        </div>
+                        <p>step</p>
+                        <div>
+                            <pre><code>0.step(10, 2) { print ​"​$it​ "​}</code></pre>
+                        </div>
+                    </section>
                 </section>
                 <section data-background="#007777">
                     <h2>duck typing</h2>
+                </section>
+                <section data-background="#007777">
+                    <h2>GroovyBeans</h2>
                 </section>
                 <section data-background="#007777">
                     <h2>Nazwane argumenty</h2>
