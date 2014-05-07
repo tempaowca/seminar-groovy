@@ -95,7 +95,35 @@
                         <li>Rozszerza JDK</li>
                     </ul>
                 </section>
-
+                <section>
+                    <section data-background="#007777">
+                        <h2>Przykład</h2>
+                        <div>
+                            <p>Java</p>
+                            <pre><code>
+import java.io.File;
+public class DirList {
+    public static void main(String[] args) {
+        File dir = new File("." );
+        File[] files = dir.listFiles();
+        for (int i = 0; i < files.length; i++) {
+            File file = files[i];
+            System.out.println(file);
+        }
+    }
+}
+                            </code></pre>
+                        </div>
+                        <div class="fragment">
+                            <p>Groovy</p>
+                            <pre><code>
+new File(".").eachFile{file ->
+    println file
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
                 <section data-background="#007777">
                     <section>
                         <h2>Auto import</h2>
@@ -110,12 +138,6 @@
                             <li>groovy.util</li>
                         </ul>
                     </section>
-                    <!--<section>-->
-                        <!--<p>Java</p>-->
-                        <!--<div>-->
-                            <!--<pre><code> String displayName = user.getName() ? user.getName() : "Anonymous"</code></pre>-->
-                        <!--</div>-->
-                    <!--</section>-->
                 </section>
                 <section data-background="#007777">
                     <h2>Średniki</h2>
@@ -422,20 +444,258 @@ else {
                         </div>
                     </section>
                 </section>
-                <section data-background="#007777">
-                    <h2>Domknięcia</h2>
-                </section>
-                <section data-background="#007777">
-                    <h2>GString</h2>
-                </section>
-                <section data-background="#007777">
-                    <h2>Kolekcje</h2>
-                </section>
-                <section data-background="#007777">
-                    <h2>Metody dynamiczne</h2>
-                </section>
+                <section>
+                    <section data-background="#007777">
+                        <h2>Domknięcia</h2>
+                        ​<div>
+                            <p>Groovy</p>
+                            <pre><code>
+def presentation = { println "super prezentacja" }
+presentation()
+===> super prezentacja
+                            </code></pre>
+                        </div>
+                        ​<div class="fragment">
+                            <pre><code>
+def presentation = { println "$it prezentacja" }
+presentation("super")
+===> super prezentacja
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>Domknięcia c.d.</h2>
+                        ​<div>
+                            <p>Nazwane parametry</p>
+                            <pre><code>
+def calculateSquare = { a, b ->
+    a * b
+}
 
+calculateSquare(16, 24)
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>Domknięcia c.d.</h2>
+                        ​<div>
+                            <p>memoize</p>
+                            <pre><code>
+fib = { i ->
+    i < 2 ? 1 : fib(i - 2) + fib(i - 1)
+}.memoize()
 
+fibMemoize = { i ->
+    i < 2 ? 1 : fibMemoize(i - 2) + fibMemoize(i - 1)
+}.memoize()
+                            </code></pre>
+                        </div>
+                        <div class="fragment">
+                            <p>fib(40): 21420ms</p>
+                            <p>fibMemoize(40): 71ms</p>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <section data-background="#007777">
+                        <h2>(G)String</h2>
+                        ​<div>
+                            <p>Java</p>
+                            <pre><code>
+System.out.println(
+    "Autorem " + movie.getTitle() + " jest " + movie.getAuthor() + "."
+);
+                            </code></pre>
+                        </div>
+                        ​<div>
+                            <p>Groovy</p>
+                            <pre><code>
+println "Autorem ${movie.title} jest ${movie.author}."
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>(G)String c.d.</h2>
+                        ​<div>
+                            <p>Groovy</p>
+                            <pre><code>
+def template = """
+Dear ${name},
+    This is a friendly notice that ${amount} was
+    deposited in your checking account on ${date}.
+"""
+                            </code></pre>
+                        </div>
+                        ​<div>
+                            <pre><code>
+println "Wspaniała prezentacja".class
+===> class java.lang.String
+println "Wspaniała ${what}".class
+===> class org.codehaus.groovy.runtime.GStringImpl
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>(G)String c.d.</h2>
+                        ​<div>
+                            <p>Operatory</p>
+                            <pre><code>
+def str = ​"Wspaniała nudna prezentacja"​
+println str
+str -= ​"nudna "​
+println str
+
+===>
+Wspaniała nudna prezentacja
+Wspaniała prezentacja
+                            </code></pre>
+                            <a href="http://groovy.codehaus.org/groovy-jdk/java/lang/String.html">http://groovy.codehaus.org/groovy-jdk/java/lang/String.html</a>
+                        </div>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>(G)String c.d.</h2>
+                        ​<div>
+                            <p>Iteracja</p>
+                            <pre><code>
+​for​(str ​in​ ​'auto'​..​'autu'​) {
+    print ​"​${str}​ "​
+}
+
+​===>
+auto autp autq autr auts autt autu
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <section data-background="#007777">
+                        <h2>Kolekcje</h2>
+                        ​<div>
+                            <p>Listy</p>
+                            <pre><code>
+def list = [1, 2, 3, 4, 5]
+println list.class
+​===> java.util.ArrayList
+                            </code></pre>
+                        </div>
+                        ​<div class ="fragment">
+                            <pre><code>
+def list = [1, 2, 3, 4, 5] as int[]
+def list = [1, 2, 3, 4, 5] as Set
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>Listy c.d.</h2>
+                        ​<div>
+                            <pre><code>
+println list[1]             // ===> 2
+println list[-1]            // ===> 5
+println list << 6           // ===> [1, 2, 3, 4, 5, 6]
+println list[2..4]          // ===> [3, 4, 5]
+pritnln list - [1, 5]       // ===> [2, 3, 4, 6]
+                            </code></pre>
+                        </div>
+                        ​<div class="fragment">
+                            <pre><code>
+def movies = ['star wars 4', 'matrix', 'terminator']
+movies.each{println it}
+movies.collect {it.capitalize()}
+movies.sort()
+movies.findAll {it.startsWith('m')}
+                            </code></pre>
+                            <p>i wiele innych...</p>
+                        </div>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>Mapy</h2>
+                        ​<div>
+                            <pre><code>
+def family = [​'brother'​ : ​'waldek'​, ​'father'​ : ​'jerzy'​, ​'mother'​ : ​'gosia'​]
+println langs.getClass()
+===> java.util.LinkedHashMap
+                            </code></pre>
+                        </div>
+                        ​<div class="fragment">
+                            <pre><code>
+family.get('brother')
+family['brother']
+family.brother
+family.'brother'
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>Mapy c.d.</h2>
+                        ​<div>
+                            <pre><code>
+family.each{println it}
+family.each{println "${it.value} is the ${it.key}" }
+                            </code></pre>
+                        </div>
+                        ​<div class="fragment">
+                        <p>collect, find, values, keySet...</p>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <section data-background="#007777">
+                        <h2>Metody dynamiczne</h2>
+                        <h3>Kategorie</h3>
+                        ​<div>
+                            <pre><code>
+@Category(Integer)
+class IntegerOps {
+    def triple() {
+        this * 3
+    }
+}
+
+use (IntegerOps) {
+    println 25.triple()
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>Metody dynamiczne</h2>
+                        <h3>ExpandoMetaClass</h3>
+                        ​<div>
+                            <pre><code>
+String.metaClass.swapCase = {->
+    def sb = new StringBuffer()
+    delegate.each {
+        sb << (Character.isUpperCase(it as char) ?
+        Character.toLowerCase(it as char) :
+        Character.toUpperCase(it as char))
+    }
+    sb.toString()
+}
+
+println "Prezentacja".swapCase() // ===> pREZENTACJA
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>Metody dynamiczne</h2>
+                        <h3>ExpandoMetaClass</h3>
+                        ​<div>
+                            <pre><code>
+​class​ Person {
+    ​def​ play() { println ​'playing...'​ }
+}
+​def​ emc = ​new​ ExpandoMetaClass(Person)
+emc.sing = { ->
+​'oh baby baby...'​
+}
+emc.initialize()
+​def​ jack = ​new​ Person()
+​def​ paul = ​new​ Person()
+jack.metaClass = emc
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
                 <section data-background="#007777">
                     <section>
                         <h2>Bibliografia</h2>
