@@ -308,28 +308,118 @@ int fibonacciStatic(int i) {
                     <p>Java: checked i unchecked</p>
                     <p>Groovy: unchecked</p>
                 </section>
-                <section data-background="#007777">
-                    <h2>GroovyBeans</h2>
-                </section>
-                <section data-background="#007777">
-                    <h2>Nazwane argumenty</h2>
+                <section>
+                    <section data-background="#007777">
+                        <h2>GroovyBeans</h2>
+                        ​<div>
+                            <p>Java</p>
+                            <pre><code>
+public class Movie {
+    private String title;
+    private String author;
+
+    public String getTitle() {return title;}
+    public String getAuthor() {return author;}
+    public void setTitle(String title) {this.title = title;}
+    public void setAuthor(String author) {this.author = author;}
+}
+                            </code></pre>
+                        </div>
+                        ​<div>
+                            <p>Groovy</p>
+                            <pre><code>
+class Movie {
+    String title;
+    String author;
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section data-background="#007777">
+                        <h2>GroovyBeans c.d.</h2>
+                        ​<div>
+                            <p>Skrócona składnia</p>
+                            <pre><code>
+def movie = new Movie()
+movie.title = "Wspaniała prezentacja"
+println movie.title
+===> Wspaniała prezentacja
+                            </code></pre>
+                        </div>
+                        ​<div>
+                            <p>Konstruktory</p>
+                            <pre><code>
+def movie1 = new Movie(title:"tytuł", author:"ktoś")
+def movie2 = new Movie(author:"ktoś", title:"tytuł")
+def movie3 = new Movie(title:"Wspaniała prezentacja")
+def movie4 = new Movie()
+                            </code></pre>
+                        </div>
+                    </section>
                 </section>
                 <section>
                     <section data-background="#007777">
                         <h2>Operatory</h2>
                         <h3>Przeciążanie</h3>
+                        <p>Groovy umożliwia przeciążanie operatorów. Operator mapowany jest na zwykłe Javowe wywołanie metody. Np:</p>
+                        ​<div>
+                            <pre><code>a + b //==> a.plus(b)</code></pre>
+                        </div>
+                        <p>Pełna lista mapowań: <a href="http://groovy.codehaus.org/Operator+Overloading">http://groovy.codehaus.org/Operator+Overloading</a></p>
                     </section>
                     <section data-background="#007777">
                         <h2>Operatory c.d.</h2>
-                        <h3>Elvis</h3>
+                        <h3>Elvis ( ?: )</h3>
+                        ​<div>
+                            <p>Java</p>
+                            <pre><code>val = something ? something : defaultValue</code></pre>
+                        </div>
+                        ​<div>
+                            <p>Groovy</p>
+                            <pre><code>val = something ?: defaultValue</code></pre>
+                        </div>
                     </section>
                     <section data-background="#007777">
                         <h2>Operatory c.d.</h2>
-                        <h3>spread operator</h3>
+                        <h3>spread operator ( * )</h3>
+                        ​<div>
+                            <p>Groovy</p>
+                            <pre><code>
+​def​ someTriArgumentMethod(a, b, c) {
+    //do something
+}
+def list = ["Java" , "Groovy" , "Scala" ]
+someTriArgumentMethod(*list)
+                            </code></pre>
+                        </div>
+                        ​<div>
+                            <p>Groovy</p>
+                            <pre><code>
+def languages = ["Java" , "Groovy" , "Scala" ]
+println languages*.toUpperCase()
+===> [JAVA, GROOVY, JRUBY]
+                            </code></pre>
+                        </div>
                     </section>
                     <section data-background="#007777">
                         <h2>Operatory c.d.</h2>
-                        <h3>safe navigation operator</h3>
+                        <h3>safe navigation operator ( ? )</h3>
+                        ​<div>
+                            <p>Java</p>
+                            <pre><code>
+if(person != null && person.getBrother() != null
+    && person.getBrother().getName() != null ) {
+    System.out.println(person.getBrother().getName());
+}
+else {
+    System.out.println("");
+}
+                            </code></pre>
+                        </div>
+                        ​<div>
+                            <p>Groovy</p>
+                            <pre><code>println person?.brother?.name</code></pre>
+                        </div>
                     </section>
                 </section>
                 <section data-background="#007777">
@@ -365,6 +455,7 @@ int fibonacciStatic(int i) {
                 </section>
                 <section data-background="#007777">
                     <h2>Dziękuję za uwagę.</h2>
+                    <a href="tempaowca.github.io/seminar-groovy/">tempaowca.github.io/seminar-groovy</a>
                 </section>
 			</div>
 
