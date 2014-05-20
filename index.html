@@ -483,7 +483,7 @@ calculateSquare(16, 24)
                             <pre><code>
 fib = { i ->
     i < 2 ? 1 : fib(i - 2) + fib(i - 1)
-}.memoize()
+}
 
 fibMemoize = { i ->
     i < 2 ? 1 : fibMemoize(i - 2) + fibMemoize(i - 1)
